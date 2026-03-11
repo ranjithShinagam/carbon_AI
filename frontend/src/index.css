@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl rounded-2xl;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: #0b1121; /* deep-blue */
+  color: #f8fafc; /* soft-white */
+}

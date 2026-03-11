@@ -1,0 +1,73 @@
+# ======================
+# Python / Backend
+# ======================
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+venv/
+env/
+myvenv/
+myvenv2/
+
+*.sqlite3
+*.db
+
+# ML models
+*.pkl
+*.joblib
+*.h5
+
+# FastAPI cache
+.pytest_cache/
+
+# Environment variables
+.env
+.env.*
+
+# ======================
+# Node / Frontend
+# ======================
+
+node_modules/
+dist/
+build/
+.vite/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ======================
+# OS files
+# ======================
+
+.DS_Store
+Thumbs.db
+
+# ======================
+# IDE files
+# ======================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ======================
+# Logs
+# ======================
+
+logs/
+*.log
+
+# ======================
+# Docker
+# ======================
+
+docker-compose.override.yml
+
+myvenv3/
