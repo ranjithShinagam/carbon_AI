@@ -1,0 +1,118 @@
+{
+  "model_name": "CarbonAI XGBoost Emission Regressor",
+  "version": "2.0.0",
+  "dataset_name": "carbon_emission_dataset_with_Industry.csv",
+  "training_timestamp": "2026-11-15T09:12:54.240249Z",
+  "dataset_records": 18250,
+  "split_sizes": {
+    "train": 12775,
+    "validation": 2737,
+    "test": 2738
+  },
+  "hyperparameters": {
+    "n_estimators": 350,
+    "max_depth": 6,
+    "learning_rate": 0.04,
+    "subsample": 0.85,
+    "colsample_bytree": 0.85,
+    "min_child_weight": 3,
+    "reg_alpha": 0.1,
+    "reg_lambda": 3.0,
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "validation_metrics": {
+    "MAE": 4.076639482554894,
+    "MSE": 26.39978376429954,
+    "RMSE": 5.138071989014901,
+    "R2": 0.8745732060052247,
+    "Median_AE": 3.4464770050048834,
+    "Mean_Residual": -0.10054942904644135,
+    "Std_Residual": 5.137088044468186,
+    "MAPE": 13.20753503868623
+  },
+  "test_metrics": {
+    "MAE": 4.158622939123316,
+    "MSE": 27.566266245024774,
+    "RMSE": 5.250358677750004,
+    "R2": 0.8682216769298495,
+    "Median_AE": 3.3996141510009785,
+    "Mean_Residual": -0.06887839741062474,
+    "Std_Residual": 5.249906857401845,
+    "MAPE": 13.155052642144897
+  },
+  "model_comparison": {
+    "Model_A_Without_Sector": {
+      "MAE": 4.107316568419652,
+      "MSE": 26.53363187658057,
+      "RMSE": 5.151080651337209,
+      "R2": 0.8739372864175664,
+      "Median_AE": 3.444469049072268,
+      "Mean_Residual": -0.10992950759737172,
+      "Std_Residual": 5.149907511785039,
+      "MAPE": 13.29530284269146
+    },
+    "Model_B_With_Sector": {
+      "MAE": 4.090832063147392,
+      "MSE": 26.494176415906356,
+      "RMSE": 5.147249402924474,
+      "R2": 0.8741247414354612,
+      "Median_AE": 3.4073796951293946,
+      "Mean_Residual": -0.1163084166292993,
+      "Std_Residual": 5.1459351694446696,
+      "MAPE": 13.240258553648493
+    },
+    "Model_C_Sector_Industry_Transport": {
+      "MAE": 4.096160721627439,
+      "MSE": 26.501033364534532,
+      "RMSE": 5.147915438751353,
+      "R2": 0.8740921637033594,
+      "Median_AE": 3.401790447998046,
+      "Mean_Residual": -0.11863194078940917,
+      "Std_Residual": 5.146548341088334,
+      "MAPE": 13.26053567020474
+    }
+  },
+  "top_shap_features": [
+    {
+      "feature": "NonRenewable_Energy_Consumption_kWh",
+      "mean_abs_shap": 9.4825
+    },
+    {
+      "feature": "Total_Energy_Consumption_kWh",
+      "mean_abs_shap": 0.6341
+    },
+    {
+      "feature": "Renewable_Energy_Share",
+      "mean_abs_shap": 0.2966
+    },
+    {
+      "feature": "NRE_Per_Production",
+      "mean_abs_shap": 0.1552
+    },
+    {
+      "feature": "Energy_Per_Employee",
+      "mean_abs_shap": 0.1529
+    },
+    {
+      "feature": "Employment_Count",
+      "mean_abs_shap": 0.1443
+    },
+    {
+      "feature": "Supply_Chain_Transport_km",
+      "mean_abs_shap": 0.1339
+    },
+    {
+      "feature": "NonRenewable_Energy_Share",
+      "mean_abs_shap": 0.1248
+    },
+    {
+      "feature": "Raw_Material_Usage_kg",
+      "mean_abs_shap": 0.1212
+    },
+    {
+      "feature": "Production_Output_Units",
+      "mean_abs_shap": 0.1156
+    }
+  ]
+}

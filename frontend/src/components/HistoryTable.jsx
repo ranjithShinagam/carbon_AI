@@ -1,45 +1,63 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Clock } from 'lucide-react';
+import { History } from 'lucide-react';
 
 const HistoryTable = ({ history }) => {
   if (!history || history.length === 0) return null;
 
   return (
-    <div className="glass-card mt-8 p-6 overflow-hidden">
-      <h3 className="text-xl font-bold mb-6 text-white flex items-center">
-        <Clock className="w-5 h-5 mr-3 text-neon-green" /> 
-        Your Prediction History
-      </h3>
-      <div className="overflow-x-auto relative">
-        <table className="w-full text-sm text-left text-blue-100">
-          <thead className="text-xs text-blue-200 uppercase bg-white/5">
+    <div className="glass-card p-6 mt-6">
+      <div className="flex items-center mb-4">
+        <History className="w-5 h-5 text-neon-green mr-2" />
+        <h3 className="text-lg font-bold text-white">Recent Predictions</h3>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm text-left text-gray-300">
+          <thead className="text-xs text-gray-400 uppercase bg-black/30 border-b border-white/10">
             <tr>
-              <th scope="col" className="py-3 px-4">Date</th>
-              <th scope="col" className="py-3 px-4">Energy (kWh)</th>
-              <th scope="col" className="py-3 px-4">Production</th>
-              <th scope="col" className="py-3 px-4 font-bold text-neon-green">Predicted CO₂</th>
-              <th scope="col" className="py-3 px-4 text-white">Intensity</th>
+              <th className="px-4 py-3">Date</th>
+              <th className="px-4 py-3">Sector / Details</th>
+              <th className="px-4 py-3 text-right">Energy (kWh)</th>
+              <th className="px-4 py-3 text-right">Production</th>
+              <th className="px-4 py-3 text-right">Renewable</th>
+              <th className="px-4 py-3 text-right">Predicted CO₂</th>
             </tr>
           </thead>
+
           <tbody>
-            {history.map((item, index) => (
-              <motion.tr 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: index * 0.1 }}
-                key={item.id} 
-                className="border-b border-white/5 hover:bg-white/5 transition-colors"
-              >
-                <td className="py-4 px-4 whitespace-nowrap">
-                  {new Date(item.created_at).toLocaleDateString()}
-                </td>
-                <td className="py-4 px-4">{(item.total_energy + item.nonrenewable_energy).toLocaleString()}</td>
-                <td className="py-4 px-4">{item.production_output.toLocaleString()}</td>
-                <td className="py-4 px-4 font-bold text-neon-green">{item.predicted_co2_emission?.toFixed(2)} t</td>
-                <td className="py-4 px-4 text-white">{item.carbon_intensity?.toFixed(3)}</td>
-              </motion.tr>
-            ))}
+            {history.map((item) => {
+              const sectorLabel = [item.sector, item.industry_sector, item.transport_mode]
+                .filter(Boolean)
+                .join(' · ');
+
+              return (
+                <tr key={item.id} className="border-b border-white/5 hover:bg-white/5">
+                  <td className="px-4 py-3 text-xs text-gray-400 whitespace-nowrap">
+                    {new Date(item.created_at).toLocaleString()}
+                  </td>
+
+                  <td className="px-4 py-3 text-xs text-blue-200">
+                    {sectorLabel || <span className="text-gray-500">General</span>}
+                  </td>
+
+                  <td className="px-4 py-3 text-right">
+                    {Number(item.total_energy).toLocaleString()}
+                  </td>
+
+                  <td className="px-4 py-3 text-right">
+                    {Number(item.production_output).toLocaleString()}
+                  </td>
+
+                  <td className="px-4 py-3 text-right text-neon-green">
+                    {(Number(item.renewable_energy_ratio) * 100).toFixed(1)}%
+                  </td>
+
+                  <td className="px-4 py-3 text-right font-bold text-white">
+                    {Number(item.predicted_co2_emission).toFixed(2)} tCO₂e
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

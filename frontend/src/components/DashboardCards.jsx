@@ -8,7 +8,7 @@ const DashboardCards = ({ results }) => {
   const cards = [
     {
       title: "Predicted CO₂ Emission",
-      value: `${results.predicted_co2_emission.toFixed(2)} tCO₂e`,
+      value: `${results.predicted_co2.toFixed(2)} tCO₂e`,
       icon: <Cloud className="w-8 h-8 text-neon-green" />,
       delay: 0.1
     },
@@ -28,32 +28,56 @@ const DashboardCards = ({ results }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+
       {cards.map((card, index) => (
+
         <motion.div
           key={index}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: card.delay }}
+          transition={{
+            duration: 0.5,
+            delay: card.delay
+          }}
           className="glass-card p-6 flex flex-col justify-between relative overflow-hidden group hover:border-neon-green/30 transition-colors"
         >
+
+          {/* Background Icon */}
+
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-            {React.cloneElement(card.icon, { className: "w-24 h-24" })}
+            {React.cloneElement(card.icon, {
+              className: "w-24 h-24"
+            })}
           </div>
-          
+
+          {/* Card Content */}
+
           <div className="mb-4">
+
             <div className="bg-white/10 p-3 rounded-xl inline-block mb-4">
               {card.icon}
             </div>
-            <h4 className="text-gray-400 text-sm font-medium uppercase tracking-wider">{card.title}</h4>
+
+            <h4 className="text-gray-400 text-sm font-medium uppercase tracking-wider">
+              {card.title}
+            </h4>
+
           </div>
-          
+
+          {/* Value */}
+
           <div>
+
             <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
               {card.value}
             </span>
+
           </div>
+
         </motion.div>
+
       ))}
+
     </div>
   );
 };

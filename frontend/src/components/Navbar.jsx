@@ -62,7 +62,7 @@ const Navbar = () => {
               <Link to="/insights" className="block py-2 px-3 text-white rounded hover:bg-white/10 md:hover:bg-transparent md:hover:text-neon-green md:p-0 transition-colors">Data Insights</Link>
             </li>
             <li>
-              <Link to="/pricing" className="block py-2 px-3 text-white rounded hover:bg-white/10 md:hover:bg-transparent md:hover:text-neon-green md:p-0 transition-colors">Pricing</Link>
+              <Link to="/sectors" className="block py-2 px-3 text-white rounded hover:bg-white/10 md:hover:bg-transparent md:hover:text-neon-green md:p-0 transition-colors">Sector Analytics</Link>
             </li>
           </ul>
         </div>

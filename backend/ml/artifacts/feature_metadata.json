@@ -1,0 +1,89 @@
+{
+  "target": "Carbon_Emission_tCO2e_TARGET",
+  "raw_numeric_features": [
+    "Total_Energy_Consumption_kWh",
+    "Renewable_Energy_Consumption_kWh",
+    "NonRenewable_Energy_Consumption_kWh",
+    "Production_Output_Units",
+    "Supply_Chain_Transport_km",
+    "Raw_Material_Usage_kg",
+    "Employment_Count"
+  ],
+  "engineered_features": [
+    "Renewable_Energy_Share",
+    "NonRenewable_Energy_Share",
+    "Energy_Per_Production",
+    "NRE_Per_Production",
+    "Transport_Intensity",
+    "Raw_Material_Intensity",
+    "Energy_Per_Employee"
+  ],
+  "categorical_features": [
+    "Sector",
+    "Industry_Sectors",
+    "Supply_Chain_Transport_Mode"
+  ],
+  "final_feature_columns": [
+    "Total_Energy_Consumption_kWh",
+    "Renewable_Energy_Consumption_kWh",
+    "NonRenewable_Energy_Consumption_kWh",
+    "Production_Output_Units",
+    "Supply_Chain_Transport_km",
+    "Raw_Material_Usage_kg",
+    "Employment_Count",
+    "Renewable_Energy_Share",
+    "NonRenewable_Energy_Share",
+    "Energy_Per_Production",
+    "NRE_Per_Production",
+    "Transport_Intensity",
+    "Raw_Material_Intensity",
+    "Energy_Per_Employee",
+    "Sector_Agriculture",
+    "Sector_Energy",
+    "Sector_IT",
+    "Sector_Manufacturing",
+    "Sector_Transport",
+    "Industry_Sectors_Automotive Industry",
+    "Industry_Sectors_Cement Production",
+    "Industry_Sectors_Logistics",
+    "Industry_Sectors_Steel Manufacturing",
+    "Supply_Chain_Transport_Mode_Air",
+    "Supply_Chain_Transport_Mode_Rail",
+    "Supply_Chain_Transport_Mode_Ship",
+    "Supply_Chain_Transport_Mode_Truck"
+  ],
+  "categories_map": {
+    "Sector": [
+      "Agriculture",
+      "Energy",
+      "IT",
+      "Manufacturing",
+      "Transport"
+    ],
+    "Industry_Sectors": [
+      "Automotive Industry",
+      "Cement Production",
+      "Logistics",
+      "Steel Manufacturing"
+    ],
+    "Supply_Chain_Transport_Mode": [
+      "Air",
+      "Rail",
+      "Ship",
+      "Truck"
+    ]
+  },
+  "excluded_features": [
+    "Carbon_Tax_USD",
+    "Carbon_Reduction_Strategy",
+    "Strategy_Implementation_Cost_USD",
+    "Expected_Carbon_Reduction_Percent",
+    "Expected_Renewable_Share_Percent",
+    "Energy_Cost_USD",
+    "Public_Acceptance_Index",
+    "Social_Impact_Score",
+    "Process_Efficiency_Percent",
+    "Company_ID",
+    "Date"
+  ]
+}

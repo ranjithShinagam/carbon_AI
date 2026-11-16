@@ -1,0 +1,9 @@
+feature,importance
+NonRenewable_Energy_Consumption_kWh,0.5616928
+Total_Energy_Consumption_kWh,0.30048236
+NonRenewable_Energy_Ratio,0.11821478
+Supply_Chain_Transport_km,0.004399078
+Production_Output_Units,0.004311303
+Renewable_Energy_Consumption_kWh,0.0038989421
+Raw_Material_Usage_kg,0.003774121
+Employment_Count,0.0032266271

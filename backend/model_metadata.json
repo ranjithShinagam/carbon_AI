@@ -1,0 +1,59 @@
+{
+    "model_type": "XGBRegressor",
+    "target": "Carbon_Emission_tCO2e_TARGET",
+    "features": [
+        "Total_Energy_Consumption_kWh",
+        "NonRenewable_Energy_Consumption_kWh",
+        "Renewable_Energy_Consumption_kWh",
+        "Production_Output_Units",
+        "Supply_Chain_Transport_km",
+        "Raw_Material_Usage_kg",
+        "Employment_Count",
+        "NonRenewable_Energy_Ratio"
+    ],
+    "base_features": [
+        "Total_Energy_Consumption_kWh",
+        "NonRenewable_Energy_Consumption_kWh",
+        "Renewable_Energy_Consumption_kWh",
+        "Production_Output_Units",
+        "Supply_Chain_Transport_km",
+        "Raw_Material_Usage_kg",
+        "Employment_Count"
+    ],
+    "engineered_features": [
+        "NonRenewable_Energy_Ratio"
+    ],
+    "best_parameters": {
+        "subsample": 0.7,
+        "reg_lambda": 0.5,
+        "reg_alpha": 0.01,
+        "n_estimators": 300,
+        "min_child_weight": 10,
+        "max_depth": 3,
+        "learning_rate": 0.02,
+        "gamma": 0.0,
+        "colsample_bytree": 0.9
+    },
+    "excluded_from_model": [
+        "Company_ID",
+        "Carbon_Tax_USD",
+        "Sector",
+        "Industry_Sectors",
+        "Carbon_Reduction_Strategy",
+        "Expected_Carbon_Reduction_Percent",
+        "Expected_Renewable_Share_Percent",
+        "Strategy_Implementation_Cost_USD"
+    ],
+    "metrics": {
+        "baseline_validation_r2": 0.8687916060499458,
+        "baseline_validation_mae": 4.127068359253508,
+        "baseline_validation_rmse": 5.194256426679725,
+        "validation_r2": 0.8748771938954126,
+        "validation_mae": 4.0669023251446434,
+        "validation_rmse": 5.072368698249252,
+        "train_r2": 0.8809007795389311,
+        "test_r2": 0.8805828202685101,
+        "test_mae": 3.9817522545317825,
+        "test_rmse": 5.014867696113315
+    }
+}
